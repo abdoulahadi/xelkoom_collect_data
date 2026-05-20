@@ -1,0 +1,149 @@
+# Environnements virtuels Python
+ven/
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+.env
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Base de données
+*.db
+*.sqlite
+*.sqlite3
+xelkoom.db
+
+# Logs
+*.log
+logs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Variables d'environnement
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Documentation
+.readthedocs.yml
+docs/_build/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.tmp
+*~
+
+# Audio files temporaires (garder la structure mais pas les gros fichiers)
+audio/*.wav
+audio/*.mp3
+audio/*.flac
+audio/*.m4a
+audio/*.ogg
+uploads/audio/*.wav
+uploads/audio/*.mp3
+uploads/audio/*.flac
+uploads/audio/*.m4a
+uploads/audio/*.ogg
+
+# Garder les dossiers audio mais pas leur contenu
+audio/validated/*.wav
+audio/validated/*.mp3
+audio/validated/*.flac
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Redis dump file
+dump.rdb
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Temporary files
+.tmp/
+tmp/
+temp/

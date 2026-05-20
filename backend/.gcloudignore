@@ -1,0 +1,67 @@
+# .gcloudignore pour les déploiements Cloud Run
+# Similaire à .gitignore, spécifie les fichiers à ne pas uploader lors des déploiements
+
+# Environnements virtuels Python
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Fichiers de configuration locale et secrets
+.env
+.env.*
+!.env.example
+!.env.cloud.example
+*.local
+
+# Répertoires de données
+uploads/
+audio/
+
+# Git et GitHub
+.git/
+.github/
+.gitignore
+
+# Tests
+tests/
+pytest_cache/
+.coverage
+htmlcov/
+
+# Documentation et fichiers de développement
+*.md
+LICENSE
+.dockerignore
+docker-compose*.yml
+Dockerfile*
+
+# Base de données
+*.db
+*.sqlite3
+
+# Fichiers temporaires
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp

@@ -1,0 +1,25 @@
+// Configuration pour l'audio sur Android
+android {
+    compileSdkVersion 34
+    buildToolsVersion "30.0.3"
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 34
+    }
+
+    // Configuration spécifique pour l'audio
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+// Ajouter les dépendances natives pour l'audio si nécessaire
+dependencies {
+    implementation 'androidx.annotation:annotation:1.3.0'
+}

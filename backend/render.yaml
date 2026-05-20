@@ -1,0 +1,70 @@
+version: 2
+
+services:
+  - type: web
+    name: xelkoom-backend
+    runtime: docker
+    region: frankfurt  # ou oregon selon votre préférence
+    plan: starter  # ou standard/pro selon vos besoins
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    
+    # Variables d'environnement de production
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: LOG_LEVEL
+        value: INFO
+      - key: DATABASE_URL
+        value: sqlite:///./xelkoom.db
+      - key: SECRET_KEY
+        generateValue: true  # Génère automatiquement une clé secrète
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: xelkoom-redis
+          property: connectionString
+      # Sentry désactivé
+      # - key: SENTRY_DSN
+      #   sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false  # À configurer manuellement si vous utilisez S3
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_BUCKET_NAME
+        sync: false
+      - key: ENABLE_RATE_LIMITING
+        value: true
+      - key: ENABLE_WHISPER_VALIDATION
+        value: false  # Désactivé par défaut pour économiser les ressources
+      - key: ALLOW_ORIGINS_STR
+        value: "https://xelkoom-frontend.onrender.com,https://xelkoom-app.onrender.com"
+      - key: RUN_MIGRATIONS
+        value: true  # Exécuter les migrations pour créer les tables nécessaires
+      - key: ENABLE_METRICS
+        value: false  # Désactiver les métriques
+    
+    # Configuration de santé
+    healthCheckPath: /health
+    
+    # Commandes de build et démarrage
+    buildCommand: echo "Building with Docker"
+    startCommand: echo "Starting with Docker CMD"
+    
+    # Stockage persistant pour les fichiers audio
+    disk:
+      name: app-storage
+      mountPath: /home/app
+      sizeGB: 1
+
+# Using SQLite instead of PostgreSQL
+
+# Redis pour le rate limiting et cache
+redis:
+  - name: xelkoom-redis
+    region: frankfurt
+    plan: starter
+    maxmemoryPolicy: allkeys-lru
