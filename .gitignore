@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+backend/ven/
+backend/venv/
+*.egg-info/
+.env
+.env.*
+
+# Audio data (lourd!)
+backend/audio/
+backend/uploads/
+
+# Flutter
+mobile_app/build/
+mobile_app/.dart_tool/
+mobile_app/.flutter-plugins
+mobile_app/.flutter-plugins-dependencies
+mobile_app/android/.gradle/
+mobile_app/ios/Pods/
+
+# Node
+admin_dashboard_react/node_modules/
+admin_dashboard_react/dist/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+backend/app/logs/
+
+# DB
+*.sqlite
+*.db
