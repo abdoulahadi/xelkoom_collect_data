@@ -100,7 +100,21 @@ async def create_admin_user():
 async def initialize_app():
     """Initialiser l'application"""
     logger.info("Initializing Xelkoom backend for production...")
-    
+
+    # Diagnostic : afficher la source effective de DATABASE_URL (masquée)
+    raw_db_url = os.getenv("DATABASE_URL", "<not set in env>")
+    if raw_db_url.startswith("postgres"):
+        # Masquer le mot de passe pour le log
+        try:
+            from urllib.parse import urlparse
+            parsed = urlparse(raw_db_url)
+            safe_url = f"{parsed.scheme}://{parsed.username}:***@{parsed.hostname}:{parsed.port or ''}{parsed.path}"
+        except Exception:
+            safe_url = "postgresql://***"
+        logger.info(f"DATABASE_URL (env) = {safe_url}")
+    else:
+        logger.info(f"DATABASE_URL (env) = {raw_db_url}")
+
     # Créer les répertoires
     await setup_directories()
     
